@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     ".onrender.com",
+    "django-blog-system-1142.onrender.com"
     ]
 
 
