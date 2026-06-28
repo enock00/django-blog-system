@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1>Update Post</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"
+                class="btn btn-primary">
+            Update Post
+        </button>
+
+        <a href="{% url 'post_list' %}"
+           class="btn btn-secondary">
+           Cancel
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

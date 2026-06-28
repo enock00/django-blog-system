@@ -1,0 +1,104 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="post-detail">
+
+    <h1>{{ post.title }}</h1>
+
+    <p class="author">
+        By {{ post.author.username }}
+    </p>
+
+    <p class="date">
+        {{ post.created_at }}
+    </p>
+
+    <hr>
+
+    <div class="post-content">
+        {{ post.content|linebreaks }}
+    </div>
+
+    <br>
+
+    {% if user == post.author %}
+        <a href="{% url 'post_update' post.id %}"
+           class="btn btn-primary">
+           Edit
+        </a>
+
+        <a href="{% url 'post_delete' post.id %}"
+           class="btn btn-danger">
+           Delete
+        </a>
+    {% endif %}
+
+    <a href="{% url 'post_list' %}"
+       class="btn btn-secondary">
+       Back
+    </a>
+
+</div>
+
+<hr>
+
+<div class="comments-section">
+
+    <h2>Comments ({{ comments.count }})</h2>
+
+    {% if user.is_authenticated %}
+
+        <h3>Leave a Comment</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary">
+                Post Comment
+            </button>
+
+        </form>
+
+    {% else %}
+
+        <p>
+            Please <a href="{% url 'login' %}">login</a>
+            to leave a comment.
+        </p>
+
+    {% endif %}
+
+    <hr>
+
+    {% for comment in comments %}
+
+        <div class="comment">
+
+            <strong>
+                {{ comment.author.username }}
+            </strong>
+
+            <small>
+                {{ comment.created_at }}
+            </small>
+
+            <p>
+                {{ comment.body|linebreaks }}
+            </p>
+
+        </div>
+
+        <hr>
+
+    {% empty %}
+
+        <p>No comments yet. Be the first to comment!</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

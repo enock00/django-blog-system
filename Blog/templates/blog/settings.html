@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h1 class="page-title">Settings</h1>
+
+<div class="settings-grid">
+
+    <div class="setting-card">
+        <i class="fa-solid fa-user"></i>
+        <h3>Account</h3>
+        <p>Manage your profile information.</p>
+
+        <a href="#" class="btn btn-primary">
+            Edit Profile
+        </a>
+    </div>
+
+    <div class="setting-card">
+        <i class="fa-solid fa-lock"></i>
+        <h3>Password</h3>
+        <p>Change your password securely.</p>
+
+        <a href="#" class="btn btn-primary">
+            Change Password
+        </a>
+    </div>
+
+    <div class="setting-card">
+        <i class="fa-solid fa-bell"></i>
+        <h3>Notifications</h3>
+        <p>Manage email notifications.</p>
+
+        <a href="#" class="btn btn-primary">
+            Configure
+        </a>
+    </div>
+
+    <div class="setting-card">
+        <i class="fa-solid fa-shield"></i>
+        <h3>Privacy</h3>
+        <p>Control visibility of your account.</p>
+
+        <a href="#" class="btn btn-primary">
+            Privacy Settings
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

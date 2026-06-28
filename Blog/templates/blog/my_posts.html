@@ -1,0 +1,69 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h1 class="page-title">My Posts</h1>
+
+{% if posts %}
+
+    {% for post in posts %}
+
+    <div class="post-card">
+
+        <h2>
+            <a href="{% url 'post_detail' post.id %}">
+                {{ post.title }}
+            </a>
+        </h2>
+
+        <p class="date">
+            {{ post.created_at|date:"F d, Y" }}
+        </p>
+
+        <p>
+            {{ post.content|truncatewords:30 }}
+        </p>
+
+        <br>
+
+        <a href="{% url 'post_detail' post.id %}"
+           class="btn btn-primary">
+            Read More
+        </a>
+
+        <a href="{% url 'post_update' post.id %}"
+           class="btn btn-success">
+            Edit
+        </a>
+
+        <a href="{% url 'post_delete' post.id %}"
+           class="btn btn-danger">
+            Delete
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="empty-state">
+
+        <i class="fa-solid fa-file-circle-xmark"></i>
+
+        <h2>No Posts Yet</h2>
+
+        <p>
+            You haven't created any posts.
+        </p>
+
+        <a href="{% url 'create_post' %}"
+           class="btn btn-primary">
+            Create Your First Post
+        </a>
+
+    </div>
+
+{% endif %}
+
+{% endblock %}
