@@ -26,11 +26,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     {% endif %}
 </header>
 
+<div id="overlay"></div>
+
 <div class="container">
 
     <aside class="sidebar" id="sidebar">
-    
-    <div id="overlay"></div>
+
 
         <h2>My Blog</h2>
 
@@ -104,21 +105,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
-<script>
 const menuBtn = document.getElementById("menu-btn");
 const sidebar = document.getElementById("sidebar");
 const overlay = document.getElementById("overlay");
 
-menuBtn.addEventListener("click", () => {
+function openMenu() {
     sidebar.classList.add("show");
     overlay.classList.add("show");
-});
+}
 
-overlay.addEventListener("click", () => {
+function closeMenu() {
     sidebar.classList.remove("show");
     overlay.classList.remove("show");
+}
+
+menuBtn.addEventListener("click", openMenu);
+overlay.addEventListener("click", closeMenu);
+
+document.querySelectorAll(".sidebar a").forEach(link => {
+    link.addEventListener("click", closeMenu);
 });
-</script>
 
 </body>
 </html>
