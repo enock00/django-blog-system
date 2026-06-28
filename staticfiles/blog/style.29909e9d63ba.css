@@ -1,0 +1,283 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#eef5ff;
+    color:#374151;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:320px;
+    background:#ffffff;
+    padding:35px 25px;
+    border-right:1px solid #e5e7eb;
+    box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
+
+.sidebar h2{
+    color:#2563eb;
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:40px;
+}
+
+/* Navigation */
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    margin-bottom:12px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:#374151;
+    font-size:1.2rem;
+    padding:16px 18px;
+    border-radius:16px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.sidebar a.active{
+    background:#eff6ff;
+    color:#2563eb;
+    font-weight:600;
+}
+
+/* Icons */
+
+.sidebar a i{
+    width:24px;
+    font-size:20px;
+}
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
+.sidebar button{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    background:white;
+    border:2px solid #ef4444;
+    border-radius:14px;
+    color:#ef4444;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar button:hover{
+    background:#ef4444;
+    color:white;
+}
+
+.sidebar a.auth-btn{
+    background:#2563eb;
+    color:white;
+    justify-content:center;
+}
+
+.sidebar a.auth-btn:hover{
+    background:#1d4ed8;
+    color:white;
+}
+
+/* =========================
+   CATEGORY SECTION
+========================= */
+
+.sidebar h3{
+    margin-top:35px;
+    margin-bottom:20px;
+    font-size:1.8rem;
+    color:#111827;
+}
+
+.sidebar h3::after{
+    content:"";
+    display:block;
+    width:50px;
+    height:4px;
+    background:#2563eb;
+    border-radius:10px;
+    margin-top:8px;
+}
+
+.categories li{
+    margin-bottom:8px;
+}
+
+.categories a{
+    padding:10px 0;
+    border-radius:0;
+    background:none;
+}
+
+.categories a:hover{
+    background:none;
+    transform:translateX(5px);
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+
+.content{
+    flex:1;
+    padding:40px;
+    background:#eef5ff;
+    overflow-y:auto;
+}
+
+/* =========================
+   CREATE BUTTON
+========================= */
+
+.btn-success{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:16px 28px;
+    border-radius:14px;
+    font-size:1.1rem;
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.btn-success:hover{
+    background:#1d4ed8;
+}
+
+/* =========================
+   POST CARD
+========================= */
+
+.posts-container{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    max-width:900px;
+}
+
+.post-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    width:100%;
+    box-sizing:border-box;
+    overflow:hidden;
+    transition:transform 0.3s ease;
+    margin-bottom:15px;
+}
+
+.post-card h2{
+    margin-bottom:0
+}
+
+.post-card h2 a{
+    text-decoration:none;
+    color:#2563eb;
+    font-size:2.4rem;
+    font-weight:700;
+}
+
+.post-card h2 a:hover{
+    color:#1d4ed8;
+}
+
+.author{
+    font-size:1.3rem;
+    color:#374151;
+    margin-bottom:8px;
+}
+
+.date{
+    color:#9ca3af;
+    margin-bottom:25px;
+}
+
+.post-card p{
+    line-height:1.8;
+    font-size:1.15rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .post-card h2 a{
+        font-size:1.6rem;
+    }
+}
+
+.empty-state{
+    background:white;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.empty-state i{
+    font-size:70px;
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.empty-state h2{
+    margin-bottom:10px;
+}
+
+.empty-state p{
+    color:#6b7280;
+    margin-bottom:20px;
+}
